@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Scan</string>
+    <string name="no_barcode_detected">no barcode detect</string>
+</resources>
