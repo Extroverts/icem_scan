@@ -1,58 +1,27 @@
 {
   "project_info": {
-    "project_number": "341463044468",
-    "firebase_url": "https://akashdodke-2aa6f.firebaseio.com",
-    "project_id": "akashdodke-2aa6f",
-    "storage_bucket": "akashdodke-2aa6f.appspot.com"
+    "project_number": "952011411008",
+    "firebase_url": "https://foundationdayreal.firebaseio.com",
+    "project_id": "foundationdayreal",
+    "storage_bucket": "foundationdayreal.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:341463044468:android:2b8767fd9b04d968",
+        "mobilesdk_app_id": "1:952011411008:android:2b8767fd9b04d968",
         "android_client_info": {
           "package_name": "com.om.developers.scan"
         }
       },
       "oauth_client": [
         {
-          "client_id": "341463044468-s53h07ukefscc0bp47u2h77cf464tj9h.apps.googleusercontent.com",
+          "client_id": "952011411008-ijapraug809st2vmf8n6u5eudk3nfu4a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA1gN4BV4r6C0rA0rM0so-EOAd9F3Se_vc"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:341463044468:android:1687a118c045b3b9",
-        "android_client_info": {
-          "package_name": "vip.puc"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "341463044468-s53h07ukefscc0bp47u2h77cf464tj9h.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA1gN4BV4r6C0rA0rM0so-EOAd9F3Se_vc"
+          "current_key": "AIzaSyBNsHhV1FCbPc79KScZ63tdwncjPnT2pOY"
         }
       ],
       "services": {
