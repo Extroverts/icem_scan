@@ -75,7 +75,7 @@ public class ICEM extends AppCompatActivity {
                         arrayList.add(mydata);
                         Log.d("", document.getId() + "==>" + document.getData().get("name"));
 
-                        if(dec.contains(mydata)){
+                        if(dec.equals(mydata)){
                             if(valid.equals("Present")){
                                 Toast.makeText(getApplicationContext(),"Already Present",Toast.LENGTH_SHORT).show();
                             }
