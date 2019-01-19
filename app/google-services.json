@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "952011411008",
-    "firebase_url": "https://foundationdayreal.firebaseio.com",
-    "project_id": "foundationdayreal",
-    "storage_bucket": "foundationdayreal.appspot.com"
+    "project_number": "116218686792",
+    "firebase_url": "https://indirajubilee2019.firebaseio.com",
+    "project_id": "indirajubilee2019",
+    "storage_bucket": "indirajubilee2019.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:952011411008:android:2b8767fd9b04d968",
+        "mobilesdk_app_id": "1:116218686792:android:2b8767fd9b04d968",
         "android_client_info": {
           "package_name": "com.om.developers.scan"
         }
       },
       "oauth_client": [
         {
-          "client_id": "952011411008-ijapraug809st2vmf8n6u5eudk3nfu4a.apps.googleusercontent.com",
+          "client_id": "116218686792-t6ocr0cutkc8pjv2avfcmq7tsgo9orm5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBNsHhV1FCbPc79KScZ63tdwncjPnT2pOY"
+          "current_key": "AIzaSyBvGKjY-mBk5ozztzXXruyQT-O-BzxV2yc"
         }
       ],
       "services": {

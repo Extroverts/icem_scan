@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +33,7 @@ public class ICEM extends AppCompatActivity {
     private static final String TAG = "";
     TextView tvs,textView;
     String mydata;
+    ImageView backs;
     ListView listView;
     private List<String> arrayList=new ArrayList <>();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -46,9 +49,15 @@ public class ICEM extends AppCompatActivity {
         db.setFirestoreSettings(settings);
 
         tvs = findViewById(R.id.data);
-        textView = findViewById(R.id.textView);
+        textView = findViewById(R.id.name);
         listView = findViewById(R.id.lists);
-
+        backs=findViewById(R.id.back);
+        backs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         final String clg_id = getIntent().getStringExtra("datas");
         int num=0;
@@ -69,13 +78,10 @@ public class ICEM extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        mydata = (String) document.getData().get("number");
+                       mydata = (String) document.getData().get("name");
+                        textView.setText("Welcome "+mydata);
                         String valid=(String)document.getData().get("status");
-                        Log.d("", mydata);
                         arrayList.add(mydata);
-                        Log.d("", document.getId() + "==>" + document.getData().get("name"));
-
-                        if(dec.equals(mydata)){
                             if(valid.equals("Present")){
                                 Toast.makeText(getApplicationContext(),"Already Present",Toast.LENGTH_SHORT).show();
                             }
@@ -84,74 +90,25 @@ public class ICEM extends AppCompatActivity {
                                 db.collection("students").document(document.getId()).update("status","Present");
                             }
 
-                        }
-                        else {
-                            Toast.makeText(getApplicationContext(),"QR Not Valid",Toast.LENGTH_SHORT).show();
-                        }
-//
-//                        if ( arrayList.contains(dec) )
-//                            {
-//                                if(valid.equals("Present")){
-//                                    Toast.makeText(getApplicationContext(),"Already Present",Toast.LENGTH_SHORT).show();
-//                                }
-//                                else {
-//                                    Toast.makeText(getApplicationContext(), "Valid College ID", Toast.LENGTH_SHORT).show();
-//                                    db.collection("students").document(document.getId()).update("status","Present");
-//                                }
-//                            }
+
 
                     ArrayAdapter <String> arrayAdapter = new ArrayAdapter <String>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayList);
                     arrayAdapter.notifyDataSetChanged();
                     listView.setAdapter(arrayAdapter);
-                        Log.d(TAG, "DocumentSnapshot data: " + document.getData().get("name"));
+
                     } else {
-                        Log.d(TAG, "No such document");
+                       Toast.makeText(getApplicationContext(),"INVALID QR CODE",Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Log.d(TAG, "get failed with ", task.getException());
+                  Toast.makeText(getApplicationContext(),"error in data",Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
 
 
-//
-//        db.collection("students")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener <QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task <QuerySnapshot> task) {
-//
-//                        if ( task.isSuccessful() )
-//                            {
-//                                for (QueryDocumentSnapshot documentSnapshot : task.getResult())
-//                                    {
-//                                        mydata = (String) documentSnapshot.getData().get("number");
-//                                        String valid=(String)documentSnapshot.getData().get("status");
-//                                        arrayList.add(mydata);
-//                                        Log.d("", documentSnapshot.getId() + "==>" + documentSnapshot.getData().get("name"));
-//                                         if ( arrayList.contains(dec) )
-//                                            {
-//                                                if(valid.equals("Present")){
-//                                                    Toast.makeText(getApplicationContext(),"Already Present",Toast.LENGTH_SHORT).show();
-//                                                }
-//                                                else {
-//                                                    Toast.makeText(getApplicationContext(), "Valid College ID", Toast.LENGTH_SHORT).show();
-//                                                    db.collection("students").document(documentSnapshot.getId()).update("status","Present");
-//                                                }
-//                                            }
-//                                    }
-//
-//                                ArrayAdapter <String> arrayAdapter = new ArrayAdapter <String>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayList);
-//                                arrayAdapter.notifyDataSetChanged();
-//                                listView.setAdapter(arrayAdapter);
-//                            } else
-//                            {
-//                                Log.d("", "ERROR", task.getException());
-//                            }
-//                    }
-//                });
     }
+
 
     public void onBackPressed(){
         startActivity(new Intent(ICEM.this,MainActivity.class));
